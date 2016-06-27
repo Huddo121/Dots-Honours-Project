@@ -1,0 +1,3 @@
+# Ignore everything except for the target directory
+*
+!target/

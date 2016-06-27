@@ -6,6 +6,7 @@ var rjs = require('gulp-requirejs-optimize');
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
+var shell = require('gulp-shell');
 
 var config = {
     src: './src',
@@ -106,3 +107,7 @@ gulp.task('browsersync', ['watch'], function() {
     };
     browserSync(bsConfig);
 });
+
+gulp.task('docker', ['site'], shell.task([
+    'docker build -t honours-project .'
+]));
